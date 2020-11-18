@@ -6,5 +6,5 @@ formCadastroCliente.addEventListener("submit", event => {
    const nome = event.target.querySelector('[data-nome]')
    const cpf = event.target.querySelector('[data-cpf]')
 
-   cadastrarClientes(nome.value, cpf.value)
+   enviarClientes(nome.value, cpf.value)
 })

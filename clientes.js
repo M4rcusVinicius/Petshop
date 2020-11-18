@@ -1,14 +1,3 @@
-const informacoesClientes = [
-  {
-    cpf: 18875539081,
-    nome: "Jairo"
-  },
-  {
-    cpf: 18875539081,
-    nome: "Monica"
-  },
-];
-
 const exibeCliente = (cpf, nome) => {
   const linha = document.createElement("tr");
   const conteudoLinha = `

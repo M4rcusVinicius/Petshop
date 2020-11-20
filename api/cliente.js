@@ -1,60 +1,56 @@
 const listarClientes = () => {
-  return fetch("http://localhost:4000/clientes", {
-    method: "get",
-  })
-    .then((resposta) => {
-      return resposta.json();
+    return fetch('http://localhost:4000/clientes')
+    .then( resposta => { 
+      return resposta.json()
     })
-    .then((json) => {
-      return json;
-    });
-};
-
-const enviarClientes = (nome, cpf) => {
-  let json = JSON.stringify({
-    nome:nome,
-    cpf:cpf
-  })
-
-  return fetch("http://localhost:4000/clientes/cliente", {
-    method:'POST',
-    headers:{
-      'Content-type':'application/json'
-    },
-    body: json,
-  }).then((resposta) => {
-    return resposta.body
-  })
+    .then( json => { 
+      return json 
+    })
 }
+
+const cadastrarClientes = (nome, cpf) =>  {
+  const json = JSON.stringify({
+    nome: nome,
+    cpf: cpf
+  })
+  return fetch('http://localhost:4000/clientes/cliente',{
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: json
+  })
+  .then( resp => { 
+    return resp.body
+  })
+} 
 
 const deletaCliente = id => {
   return fetch(`http://localhost:4000/clientes/cliente/${id}`, {
-    method:'DELETE',
-  })
-}
+    method: "DELETE",
+})}
 
-const detalhaCliente = id => {
-  return fetch(`http://localhost:4000/clientes/cliente/${id}`, {
-    method:'GET',
-  })
+
+const detalhaCliente = id => { 
+  return fetch(`http://localhost:4000/clientes/cliente/${id}`,{
+    method: 'GET'
+  }) 
   .then(resposta => {
     return resposta.json()
   })
 }
 
 const editaCliente = (id, cpf, nome) => {
-let json = JSON.stringify({
-  nome:nome,
-  cpf:cpf
-})
-
-return fetch(`http://localhost:4000/clientes/cliente/${id}`, {
-  method:'PUT',
-  headers:{
-    'Content-type':'application/json'
-  },
-  body: json,
-}).then((resposta) => {
-  return resposta.body
-})
+  const json = JSON.stringify({
+    nome: nome,
+    cpf: cpf
+  })
+  return fetch(`http://localhost:4000/clientes/cliente/${id}`,{
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: json
+  })
 }
+
